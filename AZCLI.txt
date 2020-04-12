@@ -1,3 +1,7 @@
-az acr task create --registry az204container001 --name buildwebapp --image webimage --context https://github.com/andyzhu/az204-learn-deploy-run-container-app-service.git#master --file Dockerfile --git-access-token d569ff49b4f37986bfdcdfd1d8cbe071a1aa026d
+az acr task create --registry az204container001 --name buildwebapp --image webimage --context https://github.com/andyzhu/az204-learn-deploy-run-container-app-service.git#master:dotnet --file Dockerfile --git-access-token 47a805e0d6f7b769f261d97ce401461efd3322cc
 
+-- the access token can only used once, for some reason
+-- we can also use the following command to test the task 
 az acr build --registry az204container001 --image webimage .
+
+az acr task run --registry az204container001 --name buildwebapp
